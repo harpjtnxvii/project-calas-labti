@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbangan Panjaitan - Project Calas 2025</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Aplikasi Mahasiswa Informatika</h1>
+        <button id="toggle-dark" title="Mode Gelap/Terang">🌓</button>
+      </header>
+      <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="todo">To-Do List</button>
+        <button class="tab-btn" data-tab="ipk">Kalkulator IPK</button>
+      </nav>
+      <div id="notif"></div>
+      <!-- Tab To-Do List -->
+      <section id="todo" class="tab-section active">
+        <form id="todo-form" autocomplete="off">
+          <input
+            type="text"
+            id="judul"
+            placeholder="Judul tugas"
+            required
+            maxlength="60"
+          />
+          <input type="date" id="deadline" required />
+          <select id="kategori" required>
+            <option value="" disabled selected>Pilih Kategori</option>
+            <option value="Algoritma">Algoritma</option>
+            <option value="Jaringan">Jaringan</option>
+            <option value="Basis Data">Basis Data</option>
+            <option value="Pemrograman">Pemrograman</option>
+            <option value="Sistem Operasi">Sistem Operasi</option>
+          </select>
+          <button type="submit" id="form-btn">Tambah Tugas</button>
+        </form>
+        <div class="filter-section">
+          <select id="filter-kategori">
+            <option value="all">Semua Kategori</option>
+            <option value="Algoritma">Algoritma</option>
+            <option value="Jaringan">Jaringan</option>
+            <option value="Basis Data">Basis Data</option>
+            <option value="Pemrograman">Pemrograman</option>
+            <option value="Sistem Operasi">Sistem Operasi</option>
+          </select>
+          <select id="filter-status">
+            <option value="all">Semua Status</option>
+            <option value="belum">Belum Selesai</option>
+            <option value="selesai">Selesai</option>
+          </select>
+          <input type="text" id="search" placeholder="Cari tugas..." />
+        </div>
+        <ul id="todo-list"></ul>
+        <button
+          id="backup-btn"
+          class="backup-btn"
+          title="Backup semua data ke file JSON"
+        >
+          Backup Data 📁
+        </button>
+      </section>
+      <!---> Tab Kalkulator IPK -->
+      <section id="ipk" class="tab-section">
+        <form id="ipk-form" autocomplete="off">
+          <input
+            type="text"
+            id="mk-nama"
+            placeholder="Nama Mata Kuliah"
+            required
+            maxlength="60"
+          />
+          <input
+            type="number"
+            id="mk-sks"
+            placeholder="SKS"
+            min="1"
+            max="6"
+            required
+          />
+          <select id="mk-nilai" required>
+            <option value="" disabled selected>Nilai</option>
+            <option value="A">A</option>
+            <option value="AB">AB</option>
+            <option value="B">B</option>
+            <option value="BC">BC</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+          <input
+            type="number"
+            id="mk-semester"
+            placeholder="Semester"
+            min="1"
+            max="14"
+            required
+          />
+          <button type="submit">Tambah Mata Kuliah</button>
+        </form>
+        <div class="ipk-info">
+          <table id="ipk-table">
+            <thead>
+              <tr>
+                <th>Mata Kuliah</th>
+                <th>Semester</th>
+                <th>SKS</th>
+                <th>Nilai</th>
+                <th>Bobot</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="ipk-summary">
+            <div>
+              <b>IPK Kumulatif:</b> <span id="ipk-kumulatif">0.00</span>
+            </div>
+          </div>
+          <canvas id="ipk-chart" height="160"></canvas>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

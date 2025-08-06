@@ -1,0 +1,332 @@
+:root {
+  --bg: #f6f8fc;
+  --card: #fff;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #f1f5f9;
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
+  --text: #1e293b;
+  --text-soft: #64748b;
+  --done: #d1fae5;
+}
+body.dark {
+  --bg: #18181b;
+  --card: #232325;
+  --primary: #60a5fa;
+  --primary-dark: #2563eb;
+  --accent: #27272a;
+  --success: #4ade80;
+  --warning: #fde047;
+  --danger: #f87171;
+  --text: #fafafa;
+  --text-soft: #a1a1aa;
+  --done: #14532d;
+}
+body {
+  background: var(--bg);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s;
+}
+.container {
+  background: var(--card);
+  max-width: 620px;
+  margin: 38px auto 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(22, 22, 22, 0.14);
+  padding: 28px 20px 36px 20px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  text-align: left;
+  color: var(--primary-dark);
+  font-size: 1.5em;
+  margin-bottom: 7px;
+}
+#toggle-dark {
+  font-size: 1.3em;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--primary);
+  transition: background 0.2s, color 0.2s;
+  padding: 6px 12px;
+}
+#toggle-dark:hover {
+  background: var(--primary);
+  color: var(--card);
+}
+nav.tab-nav {
+  display: flex;
+  gap: 12px;
+  margin: 19px 0 17px 0;
+}
+.tab-btn {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border: none;
+  padding: 10px 21px;
+  border-radius: 7px 7px 0 0;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 2.5px solid transparent;
+}
+.tab-btn.active {
+  background: var(--bg);
+  color: var(--primary);
+  border-bottom: 2.5px solid var(--primary-dark);
+}
+.tab-section {
+  display: none;
+}
+.tab-section.active {
+  display: block;
+}
+#notif {
+  position: fixed;
+  top: 13px;
+  right: 16px;
+  min-width: 90px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+  opacity: 0;
+  z-index: 90;
+  pointer-events: none;
+  font-size: 1.03em;
+  transition: opacity 0.3s;
+}
+#notif.show {
+  opacity: 1;
+  animation: popUp 0.4s;
+}
+@keyframes popUp {
+  0% {
+    transform: translateY(-30px) scale(0.96);
+  }
+  60% {
+    transform: translateY(3px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+form input,
+form select,
+form button {
+  padding: 9px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1em;
+  background: var(--accent);
+  color: var(--text);
+  outline: none;
+}
+form button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+form button:hover {
+  background: var(--primary-dark);
+}
+.filter-section {
+  display: flex;
+  gap: 9px;
+  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+}
+#search {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 11px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: var(--accent);
+  color: var(--text);
+}
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: var(--accent);
+  padding: 15px 11px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.todo-item.done {
+  background: var(--done);
+  text-decoration: line-through;
+  color: var(--text-soft);
+  opacity: 0.7;
+}
+.todo-info {
+  flex: 1;
+}
+.todo-title {
+  font-size: 1.07em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.todo-meta {
+  font-size: 0.95em;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+.todo-actions {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.todo-actions button {
+  background: none;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  font-size: 1.08em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  transition: background 0.17s;
+}
+.todo-actions button.edit {
+  color: var(--primary);
+}
+.todo-actions button:hover {
+  background: var(--warning);
+  color: var(--text);
+}
+.todo-actions .done-checkbox {
+  accent-color: var(--success);
+  width: 18px;
+  height: 18px;
+}
+.backup-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s;
+  font-weight: 500;
+}
+.backup-btn:hover {
+  background: var(--primary-dark);
+}
+.ipk-info {
+  margin-top: 20px;
+}
+#ipk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+  font-size: 0.98em;
+  background: var(--accent);
+  border-radius: 10px;
+  overflow: hidden;
+}
+#ipk-table th,
+#ipk-table td {
+  padding: 8px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+#ipk-table th {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 500;
+}
+#ipk-table td {
+  color: var(--text);
+}
+#ipk-table tr:last-child td {
+  border-bottom: none;
+}
+#ipk-table button {
+  font-size: 1em;
+  color: var(--danger);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.17s;
+}
+#ipk-table button:hover {
+  background: var(--warning);
+  color: var(--text);
+}
+.ipk-summary {
+  margin-bottom: 12px;
+  font-size: 1.08em;
+  color: var(--primary-dark);
+}
+#ipk-chart {
+  margin-top: 12px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  width: 100%;
+}
+@media (max-width: 660px) {
+  .container {
+    padding: 12px 1vw 18px 1vw;
+  }
+  form,
+  .filter-section {
+    flex-direction: column;
+    gap: 6px;
+  }
+  header h1 {
+    font-size: 1.08em;
+  }
+  nav.tab-nav {
+    gap: 5px;
+  }
+  .tab-btn {
+    padding: 8px 11px;
+  }
+}
