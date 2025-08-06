@@ -44,7 +44,7 @@ Mengatur tampilan visual dengan:
 - **Delete**: Menghapus tugas dari sistem
 - **Status Toggle**: Mengubah status selesai/belum selesai
 
-### 3.2 Kategori Tugas
+### 3.2 Kategori Tugas (hanya contoh)
 - Algoritma
 - Jaringan
 - Basis Data
