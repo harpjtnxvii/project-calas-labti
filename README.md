@@ -1,6 +1,3 @@
-# project-calas-labti
-website dinamis
-
 # Dokumentasi Aplikasi Mahasiswa Informatika
 **Project Calas 2025 - Harbangan Panjaitan**
 
