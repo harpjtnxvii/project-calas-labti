@@ -195,6 +195,4 @@ Aplikasi mendukung browser modern dengan fitur:
 - Dependensi pada browser localStorage
 
 ---
-**Pengembang**: Harbangan Panjaitan  
 **Project**: Calas 2025  
-**Teknologi**: HTML5, CSS3, JavaScript ES6, Chart.js
